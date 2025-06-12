@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Master - Interactive Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <button class="theme-toggle" onclick="toggleTheme()">
+                <span>Theme</span>
+            </button>
+            <h1 class="title">Quiz Master</h1>
+            <p class="subtitle">Test your knowledge with our interactive quiz</p>
+        </div>
+
+        <div id="startScreen" class="quiz-card">
+            <div class="start-screen">
+                <h2 class="start-title">Welcome to Quiz Master!</h2>
+                <p class="start-description">
+                    Challenge yourself with 10 carefully crafted questions covering various topics.
+                    You'll have 30 seconds per question. Are you ready to test your knowledge?
+                </p>
+
+                <div class="quiz-info">
+                    <div class="info-item">
+                        <div class="info-icon">📚</div>
+                        <div class="info-title">10 Questions</div>
+                        <div class="info-desc">Diverse topics to challenge your mind</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">⏱️</div>
+                        <div class="info-title">30 Seconds</div>
+                        <div class="info-desc">Per question to keep you engaged</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🏆</div>
+                        <div class="info-title">Instant Results</div>
+                        <div class="info-desc">Get detailed feedback immediately</div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="startQuiz()" style="font-size: 1.2rem; padding: 15px 30px;">
+                    Start Quiz 🚀
+                </button>
+            </div>
+        </div>
+
+        
+        <div id="quizScreen" class="quiz-card" style="display: none;">
+            <div class="progress-container">
+                <div class="progress-info">
+                    <span>Question <span id="currentQuestion">1</span> of <span id="totalQuestions">10</span></span>
+                    <span class="timer" id="timer">⏰ 30s</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+
+            <div class="question-container">
+                <h2 class="question" id="questionText"></h2>
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="controls">
+                <button class="btn btn-secondary" onclick="showStartScreen()">Exit Quiz</button>
+                <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>
+                    Next Question →
+                </button>
+            </div>
+        </div>
+
+        
+        <div id="resultsScreen" class="quiz-card" style="display: none;">
+            <div class="results">
+                <div class="score" id="finalScore">0%</div>
+                <div class="score-text" id="scoreMessage"></div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-value" id="correctAnswers">0</div>
+                        <div class="stat-label">Correct</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="incorrectAnswers">0</div>
+                        <div class="stat-label">Incorrect</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="totalTime">0s</div>
+                        <div class="stat-label">Total Time</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value" id="avgTime">0s</div>
+                        <div class="stat-label">Avg per Q</div>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="btn btn-secondary" onclick="showStartScreen()">Back to Start</button>
+                    <button class="btn btn-primary" onclick="restartQuiz()">Try Again 🔄</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
